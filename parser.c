@@ -84,6 +84,8 @@ void parse_file ( char * filename,
   char line[255];
   clear_screen(s);
 
+  struct stack * coods = new_stack();
+  //my stack
   color c;
   c.red = 0;
   c.green = 0;
@@ -109,7 +111,14 @@ void parse_file ( char * filename,
     int step = 100;
     int step_3d = 10;
 
-    if ( strncmp(line, "box", strlen(line)) == 0 ) {
+    if(strncmp(line, "push", strlen(line)) == 0){
+      push(coords);
+    }
+    else if (strncmp(line, "pop", strlen(line)) == 0){
+      pop(coords);
+    }
+
+    else if ( strncmp(line, "box", strlen(line)) == 0 ) {
       fgets(line, sizeof(line), f);
       //printf("BOX\t%s", line);
 
