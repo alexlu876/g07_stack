@@ -84,7 +84,7 @@ void parse_file ( char * filename,
   char line[255];
   clear_screen(s);
 
-  struct stack * coods = new_stack();
+  struct stack * coords = new_stack();
   //my stack
   color c;
   c.red = 0;
@@ -208,7 +208,7 @@ void parse_file ( char * filename,
                xvals[1], yvals[1], zvals[1]);
       matrix_mult(peek(coords), edges);
       draw_lines(edges, s, c);
-      edges->lastcol = 0
+      edges->lastcol = 0;
     }//end line
 
     else if ( strncmp(line, "scale", strlen(line)) == 0 ) {
