@@ -163,7 +163,7 @@ void parse_file ( char * filename,
       sscanf(line, "%lf %lf %lf %lf",
              xvals, yvals, zvals, &r);
       add_circle( edges, xvals[0], yvals[0], zvals[0], r, step);
-      matrix_mult(peek(coords), polygons);
+      matrix_mult(peek(coords), edges);
       draw_lines(edges, s, c);
       edges->lastcol = 0;
     }//end of circle
@@ -189,7 +189,7 @@ void parse_file ( char * filename,
       //printf("%d\n", type);
       add_curve( edges, xvals[0], yvals[0], xvals[1], yvals[1],
                  xvals[2], yvals[2], xvals[3], yvals[3], step, type);
-      matrix_mult(peek(coords), polygons);
+      matrix_mult(peek(coords), edges);
       draw_lines(edges, s, c);
       edges->lastcol = 0;
     }//end of curve
